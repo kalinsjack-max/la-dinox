@@ -65,6 +65,21 @@
             white-space: nowrap;
             animation: marquee 30s linear infinite;
         }
+
+        /* Refined luxury finish: visual polish only; existing content and interactions stay intact. */
+        body { background-image: radial-gradient(rgba(212,175,55,.09) .7px, transparent .7px); background-size: 18px 18px; }
+        #navbar { box-shadow: 0 8px 28px rgba(5,33,20,.06); }
+        .tab-content { animation: pageReveal .35s ease both; }
+        @keyframes pageReveal { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+        button { -webkit-tap-highlight-color: transparent; }
+        button:not(:disabled) { transition: transform .2s ease, box-shadow .2s ease, background-color .2s ease, opacity .2s ease; }
+        button:not(:disabled):hover { filter: saturate(1.06); }
+        button:focus-visible, input:focus-visible, textarea:focus-visible, select:focus-visible { outline: 3px solid rgba(212,175,55,.75); outline-offset: 3px; }
+        .gold-gradient { box-shadow: 0 8px 20px rgba(212,175,55,.16); }
+        .forest-gradient { box-shadow: 0 8px 20px rgba(5,33,20,.16); }
+        #tab-home .rounded-3xl, .tab-content .shadow-xl, .tab-content .shadow-2xl { box-shadow: 0 18px 45px rgba(5,33,20,.09); }
+        input, textarea, select { border-radius: .75rem; }
+        @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; transition-duration: .01ms !important; } }
     </style>
 </head>
 <body class="bg-ivory text-charcoal font-sans antialiased selection:bg-gold selection:text-white min-h-screen flex flex-col justify-between">
@@ -85,8 +100,8 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
             <!-- Brand Logo -->
             <div class="flex items-center gap-3 cursor-pointer group" onclick="switchTab('home'); triggerRandomSavageToast('হোম পেজে স্বাগতম! ফ্যাহিম এখানে এসে প্রতিদিন কান্নাকাটি করে।');">
-                <img src="/Logo.png" 
-                     alt="La Dinox Logo" 
+                <img src="Logo.png" 
+                     alt="La Dinox logo" 
                      class="w-12 h-12 object-contain group-hover:scale-105 transition-transform duration-300 drop-shadow-md">
                 <div class="flex flex-col">
                     <span class="font-serif font-bold text-2xl tracking-wider text-forest">লা ডিনক্স</span>
@@ -136,9 +151,7 @@
             <!-- Hero Section -->
             <div class="relative forest-gradient text-ivory py-24 lg:py-32 overflow-hidden">
                 <div class="absolute inset-0 opacity-10 bg-[radial-gradient(#D4AF37_1px,transparent_1px)] [background-size:16px_16px]"></div>
-                <div class="absolute right-0 top-1/2 -translate-y-1/2 translate-x-1/4 opacity-15 pointer-events-none w-[600px] h-[600px]">
-                    <img src="https://storage.googleapis.com/gweb-cloud-ai-prod.appspot.com/canvas/uploads/1_fdc5476a-5c1e-450f-a0af-66ed44405900.png" alt="Watermark" class="w-full h-full object-contain filter grayscale invert">
-                </div>
+                <!-- Decorative watermark removed: the remote image was unavailable, so its alt text appeared visibly. -->
 
                 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
                     <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
@@ -169,7 +182,7 @@
                                 লাইভ ট্রমা মিটার
                             </div>
                             <div class="text-center mb-6">
-                                <img src="/Logo.png" class="w-20 h-20 mx-auto mb-3 drop-shadow" alt="Logo">
+                                <img src="Logo.png" class="w-20 h-20 mx-auto mb-3 rounded-full bg-ivory p-2 object-contain shadow-lg" alt="La Dinox logo">
                                 <h3 class="font-serif text-2xl font-bold text-ivory">ফ্যাহিম ডাইনোসর ইনডেক্স</h3>
                                 <p class="text-stone-400 text-xs mt-1">ব্রেকআপের পর মানসিক ক্ষতির লাইভ ডেটা</p>
                             </div>
@@ -237,11 +250,11 @@
 
                 <!-- Category Filters -->
                 <div class="flex flex-wrap justify-center gap-3 mb-12">
-                    <button onclick="filterProducts('all'); triggerRandomSavageToast('সব প্রোডাক্ট ফিল্টার সিলেক্ট করা হলো।');" class="category-btn active-cat bg-forest text-ivory px-6 py-2.5 rounded-full text-sm font-semibold transition-all shadow">সব পণ্য</button>
-                    <button onclick="filterProducts('Apparel'); triggerRandomSavageToast('অ্যাপারেল ফিল্টার: ফ্যাহিমের শর্ট আর্মস পলো শার্ট।');" class="category-btn bg-stone-200 text-stone-700 hover:bg-stone-300 px-6 py-2.5 rounded-full text-sm font-semibold transition-all">পলো ও অ্যাপারেল</button>
-                    <button onclick="filterProducts('Survival Gear'); triggerRandomSavageToast('সারভাইভাল গিয়ার ফিল্টার: ডাইনোসর আক্রমণ থেকে বাঁচার গিয়ার।');" class="category-btn bg-stone-200 text-stone-700 hover:bg-stone-300 px-6 py-2.5 rounded-full text-sm font-semibold transition-all">সারভাইভাল গিয়ার</button>
-                    <button onclick="filterProducts('Coping'); triggerRandomSavageToast('কোপিং ফিল্টার: ব্রেকআপের ব্যথা ভুলানোর ম্যাজিক উপাদান।');" class="category-btn bg-stone-200 text-stone-700 hover:bg-stone-300 px-6 py-2.5 rounded-full text-sm font-semibold transition-all">ব্রেকআপ কোপিং</button>
-                    <button onclick="filterProducts('Luxury'); triggerRandomSavageToast('লাক্সারি টিয়ার্স: খাঁটি এক্সের চোখের জলের নির্যাস।');" class="category-btn bg-stone-200 text-stone-700 hover:bg-stone-300 px-6 py-2.5 rounded-full text-sm font-semibold transition-all">লাক্সারি টিয়ার্স</button>
+                    <button onclick="filterProducts('all', this); triggerRandomSavageToast('সব প্রোডাক্ট ফিল্টার সিলেক্ট করা হলো।');" class="category-btn active-cat bg-forest text-ivory px-6 py-2.5 rounded-full text-sm font-semibold transition-all shadow">সব পণ্য</button>
+                    <button onclick="filterProducts('Apparel', this); triggerRandomSavageToast('অ্যাপারেল ফিল্টার: ফ্যাহিমের শর্ট আর্মস পলো শার্ট।');" class="category-btn bg-stone-200 text-stone-700 hover:bg-stone-300 px-6 py-2.5 rounded-full text-sm font-semibold transition-all">পলো ও অ্যাপারেল</button>
+                    <button onclick="filterProducts('Survival Gear', this); triggerRandomSavageToast('সারভাইভাল গিয়ার ফিল্টার: ডাইনোসর আক্রমণ থেকে বাঁচার গিয়ার।');" class="category-btn bg-stone-200 text-stone-700 hover:bg-stone-300 px-6 py-2.5 rounded-full text-sm font-semibold transition-all">সারভাইভাল গিয়ার</button>
+                    <button onclick="filterProducts('Coping', this); triggerRandomSavageToast('কোপিং ফিল্টার: ব্রেকআপের ব্যথা ভুলানোর ম্যাজিক উপাদান।');" class="category-btn bg-stone-200 text-stone-700 hover:bg-stone-300 px-6 py-2.5 rounded-full text-sm font-semibold transition-all">ব্রেকআপ কোপিং</button>
+                    <button onclick="filterProducts('Luxury', this); triggerRandomSavageToast('লাক্সারি টিয়ার্স: খাঁটি এক্সের চোখের জলের নির্যাস।');" class="category-btn bg-stone-200 text-stone-700 hover:bg-stone-300 px-6 py-2.5 rounded-full text-sm font-semibold transition-all">লাক্সারি টিয়ার্স</button>
                 </div>
 
                 <!-- Products Grid -->
@@ -360,7 +373,7 @@
 
                 <div class="bg-white border border-gold/40 rounded-3xl p-8 sm:p-12 shadow-xl space-y-8">
                     <div class="flex items-center justify-center">
-                        <img src="https://storage.googleapis.com/gweb-cloud-ai-prod.appspot.com/canvas/uploads/1_fdc5476a-5c1e-450f-a0af-66ed44405900.png" class="w-32 h-32 object-contain cursor-pointer" onclick="triggerRandomSavageToast('লোগোতে ক্লিক করেছেন! ফ্যাহিমের এক্স এটি দেখে ব্লক করে দিয়েছে।')" alt="Logo">
+                        <img src="Logo.png" class="w-32 h-32 rounded-full bg-ivory p-2 object-contain shadow-md cursor-pointer" onclick="triggerRandomSavageToast('লোগোতে ক্লিক করেছেন! ফ্যাহিমের এক্স এটি দেখে ব্লক করে দিয়েছে।')" alt="Logo">
                     </div>
                     
                     <div class="space-y-6 text-stone-700 leading-relaxed font-light text-base sm:text-lg">
@@ -411,7 +424,7 @@
             <!-- Cart Header -->
             <div class="p-6 border-b border-gold/20 flex items-center justify-between bg-forest text-ivory">
                 <div class="flex items-center gap-3">
-                    <img src="https://storage.googleapis.com/gweb-cloud-ai-prod.appspot.com/canvas/uploads/1_fdc5476a-5c1e-450f-a0af-66ed44405900.png" class="w-8 h-8 object-contain">
+                    <img src="Logo.png" class="w-8 h-8 rounded-full bg-ivory p-1 object-contain">
                     <h3 class="font-serif text-xl font-bold">আপনার এক্সক্লুসিভ কার্ট</h3>
                 </div>
                 <button onclick="toggleCart(); triggerRandomSavageToast('কার্ট বন্ধ করা হলো। ফ্যাহিম স্বস্তির নিঃশ্বাস ফেলল।');" class="text-ivory hover:text-gold text-xl p-2">
@@ -496,8 +509,8 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 grid grid-cols-1 md:grid-cols-4 gap-8">
             <div class="space-y-4 md:col-span-2">
                 <div class="flex items-center gap-3">
-                    <img src="/Logo.png" class="w-10 h-10 object-contain">
-                    <span class="font-serif font-bold text-2xl tracking-wider text-gold">লা ডিনক্স</span>
+                    <img src="Logo.png" alt="La Dinox logo" class="w-14 h-14 rounded-full bg-ivory p-2 object-contain shadow-md">
+                    <span class="font-serif font-bold text-3xl tracking-wider text-gold">লা ডিনক্স</span>
                 </div>
                 <p class="text-stone-400 text-sm max-w-md leading-relaxed">
                     ব্রেকআপ ট্রমা, শর্ট আর্মস এবং ডাইনোসর এক্স-গার্লফ্রেন্ডের স্মৃতি থেকে বাঁচার জন্য একমাত্র বিশ্বস্ত লাক্সারি ব্র্যান্ড।
@@ -757,13 +770,16 @@
             `;
         }
 
-        function filterProducts(cat) {
+        function filterProducts(cat, clickedButton) {
             document.querySelectorAll('.category-btn').forEach(btn => {
                 btn.classList.remove('bg-forest', 'text-ivory');
                 btn.classList.add('bg-stone-200', 'text-stone-700');
             });
-            event.target.classList.remove('bg-stone-200', 'text-stone-700');
-            event.target.classList.add('bg-forest', 'text-ivory');
+            const activeButton = clickedButton || document.querySelector(`.category-btn[onclick*="'${cat}'"]`);
+            if (activeButton) {
+                activeButton.classList.remove('bg-stone-200', 'text-stone-700');
+                activeButton.classList.add('bg-forest', 'text-ivory');
+            }
             renderProducts(cat);
         }
 
@@ -959,7 +975,7 @@
             const toast = document.createElement('div');
             toast.className = 'bg-forest text-ivory px-6 py-4 rounded-2xl shadow-2xl border border-gold/40 text-sm font-medium flex items-center gap-3 transform translate-y-10 opacity-0 transition-all duration-300 pointer-events-auto';
             toast.innerHTML = `
-                <img src="https://storage.googleapis.com/gweb-cloud-ai-prod.appspot.com/canvas/uploads/1_fdc5476a-5c1e-450f-a0af-66ed44405900.png" class="w-6 h-6 object-contain">
+                <img src="Logo.png" class="w-6 h-6 rounded-full bg-ivory p-1 object-contain">
                 <span>${message}</span>
             `;
             container.appendChild(toast);
@@ -978,6 +994,11 @@
         window.onload = function() {
             renderProducts('all');
             renderRoasts();
+            const allProductsButton = document.querySelector('.category-btn');
+            if (allProductsButton) {
+                document.querySelectorAll('.category-btn').forEach(btn => btn.classList.remove('bg-forest', 'text-ivory'));
+                allProductsButton.classList.add('bg-forest', 'text-ivory');
+            }
         };
     </script>
 </body>

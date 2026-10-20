@@ -1,0 +1,992 @@
+<!DOCTYPE html>
+<html lang="bn" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>লা ডিনক্স (La Dinox) | চরম সারকাস্টিক লাক্সারি ও ফ্যাহিম রোস্ট ব্র্যান্ড</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Hind+Siliguri:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        forest: '#0A3A24',
+                        forestDark: '#052114',
+                        gold: '#D4AF37',
+                        goldLight: '#F3E5AB',
+                        ivory: '#F9F8F4',
+                        ivoryCard: '#FFFFFF',
+                        charcoal: '#1A1A1A'
+                    },
+                    fontFamily: {
+                        serif: ['"Cormorant Garamond"', '"Hind Siliguri"', 'serif'],
+                        sans: ['"Hind Siliguri"', '"Plus Jakarta Sans"', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .gold-gradient {
+            background: linear-gradient(135deg, #D4AF37 0%, #F3E5AB 50%, #D4AF37 100%);
+        }
+        .text-gold-gradient {
+            background: linear-gradient(135deg, #D4AF37 0%, #FFF3D1 50%, #D4AF37 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .forest-gradient {
+            background: linear-gradient(135deg, #0A3A24 0%, #104F33 100%);
+        }
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #F9F8F4;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #D4AF37;
+            border-radius: 4px;
+        }
+        @keyframes marquee {
+            0% { transform: translateX(0%); }
+            100% { transform: translateX(-50%); }
+        }
+        .animate-marquee {
+            display: inline-block;
+            white-space: nowrap;
+            animation: marquee 30s linear infinite;
+        }
+    </style>
+</head>
+<body class="bg-ivory text-charcoal font-sans antialiased selection:bg-gold selection:text-white min-h-screen flex flex-col justify-between">
+
+    <!-- Top Announcement Bar with Random Savage Marquee -->
+    <div class="bg-forest text-ivory text-xs sm:text-sm py-2 px-4 text-center font-medium tracking-wide flex items-center justify-center gap-2 overflow-hidden shadow-inner">
+        <i class="fa-solid fa-triangle-exclamation text-gold animate-pulse"></i>
+        <div class="overflow-hidden whitespace-nowrap w-full">
+            <span class="animate-marquee inline-block">
+                🔥 ব্রেকিং নিউজ: ফ্যাহিমের এক্স-ডাইনোসর গার্লফ্রেন্ড এখন উল্কাপিণ্ডের সাথে ডেটিং করছে! • সমস্ত পণ্যে ১০০% ব্রেকআপ গ্যারান্টি এবং ফ্যাহিমের কান্নার লাইভ ফিড চালু আছে! • কোনো ইজ্জত ফেরত দেওয়া হয় না! 🔥
+            </span>
+        </div>
+        <i class="fa-solid fa-triangle-exclamation text-gold animate-pulse"></i>
+    </div>
+
+    <!-- Navigation Bar -->
+    <header id="navbar" class="sticky top-0 z-50 bg-ivory/95 backdrop-blur-md border-b border-gold/20 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <!-- Brand Logo -->
+            <div class="flex items-center gap-3 cursor-pointer group" onclick="switchTab('home'); triggerRandomSavageToast('হোম পেজে স্বাগতম! ফ্যাহিম এখানে এসে প্রতিদিন কান্নাকাটি করে।');">
+                <img src="/Logo.png" 
+                     alt="La Dinox logo" 
+                     class="w-12 h-12 object-contain group-hover:scale-105 transition-transform duration-300 drop-shadow-md">
+                <div class="flex flex-col">
+                    <span class="font-serif font-bold text-2xl tracking-wider text-forest">লা ডিনক্স</span>
+                    <span class="text-[10px] tracking-[0.2em] uppercase text-gold font-semibold">LA DINOX • ফ্যাহিম সারভাইভাল ব্র্যান্ড</span>
+                </div>
+            </div>
+
+            <!-- Desktop Nav Links -->
+            <nav class="hidden md:flex items-center gap-8 font-semibold text-base">
+                <button onclick="switchTab('home'); triggerRandomSavageToast('হোম পেজ: যেখানে ফ্যাহিমের বাকি থাকা ইজ্জত মাপা হয়।');" id="nav-home" class="nav-btn text-forest border-b-2 border-forest pb-1 transition-colors">হোম</button>
+                <button onclick="switchTab('shop'); triggerRandomSavageToast('শপ পেজ: এক্সকে ভোলার জন্য পলো শার্ট ও ট্রমা রিলিফ কিট কিনুন!');" id="nav-shop" class="nav-btn text-charcoal/70 hover:text-forest pb-1 transition-colors">কালেকশন / শপ</button>
+                <button onclick="switchTab('arena'); triggerRandomSavageToast('ফাহিমের অনুতাপ গ্যালারি: ফ্যাহিমের লজ্জাজনক স্মৃতির আর্কাইভ।');" id="nav-arena" class="nav-btn text-charcoal/70 hover:text-forest pb-1 transition-colors">ফাহিমের অনুতাপ গ্যালারি</button>
+                <button onclick="switchTab('roast'); triggerRandomSavageToast('রোস্ট জেনারেটর: যতবার ক্লিক করবেন, ফ্যাহিম ততবার নতুন করে অপমানিত হবে!');" id="nav-roast" class="nav-btn text-charcoal/70 hover:text-forest pb-1 transition-colors">রোস্ট জেনারেটর</button>
+                <button onclick="switchTab('about'); triggerRandomSavageToast('ব্র্যান্ড মেনিফেস্টো: কিভাবে ব্রেকআপ থেকে কোটিপতি হওয়ার ফন্দি আঁটা হয়েছিল।');" id="nav-about" class="nav-btn text-charcoal/70 hover:text-forest pb-1 transition-colors">মেনিফেস্টো</button>
+            </nav>
+
+            <!-- Actions (Cart & Sound FX & Mobile Menu Toggle) -->
+            <div class="flex items-center gap-3">
+                <button onclick="playDinoRoar(); triggerRandomSavageToast('রোরসাস! টি-রেক্সের গর্জন শুনে ফ্যাহিমের বিছানা থেকে পড়ার শব্দ আসলো।');" title="ডাইনোসর গর্জন শুনুন" class="bg-gold/20 text-forest hover:bg-gold hover:text-forestDark p-3 rounded-full transition-all flex items-center justify-center border border-gold/40">
+                    <i class="fa-solid fa-volume-high"></i>
+                </button>
+                <button onclick="toggleCart(); triggerRandomSavageToast('কার্ট খোলা হলো। ফ্যাহিমের ওয়ালেট এখন ভয়ের চোটে কাঁপছে!');" class="relative bg-forest text-ivory p-3 rounded-full hover:bg-forestDark transition-all shadow-md group flex items-center justify-center">
+                    <i class="fa-solid fa-bag-shopping group-hover:scale-110 transition-transform"></i>
+                    <span id="cart-badge" class="absolute -top-1 -right-1 bg-gold text-forestDark text-xs font-bold w-5 h-5 rounded-full flex items-center justify-center shadow">০</span>
+                </button>
+                <button onclick="toggleMobileMenu(); triggerRandomSavageToast('মোবাইল মেনু ওপেন হলো।');" class="md:hidden text-forest text-2xl p-2 focus:outline-none">
+                    <i class="fa-solid fa-bars" id="mobile-menu-icon"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Nav Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-ivory border-b border-gold/20 px-6 py-4 space-y-3 shadow-lg">
+            <button onclick="switchTab('home'); toggleMobileMenu(); triggerRandomSavageToast('হোম পেজে গেলেন।');" class="block w-full text-left py-2 font-medium text-forest border-b border-stone-200">হোম</button>
+            <button onclick="switchTab('shop'); toggleMobileMenu(); triggerRandomSavageToast('শপ পেজে গেলেন।');" class="block w-full text-left py-2 font-medium text-charcoal hover:text-forest border-b border-stone-200">কালেকশন / শপ</button>
+            <button onclick="switchTab('arena'); toggleMobileMenu(); triggerRandomSavageToast('অনুতাপ গ্যালারিতে গেলেন।');" class="block w-full text-left py-2 font-medium text-charcoal hover:text-forest border-b border-stone-200">ফ্যাহিমের অনুতাপ গ্যালারি</button>
+            <button onclick="switchTab('roast'); toggleMobileMenu(); triggerRandomSavageToast('রোস্ট জেনারেটরে গেলেন।');" class="block w-full text-left py-2 font-medium text-charcoal hover:text-forest border-b border-stone-200">রোস্ট জেনারেটর</button>
+            <button onclick="switchTab('about'); toggleMobileMenu(); triggerRandomSavageToast('মেনিফেস্টো দেখলেন।');" class="block w-full text-left py-2 font-medium text-charcoal hover:text-forest">ব্র্যান্ড মেনিফেস্টো</button>
+        </div>
+    </header>
+
+    <!-- MAIN CONTENT CONTAINER -->
+    <main class="flex-grow">
+
+        <!-- ================= TAB 1: HOME PAGE ================= -->
+        <section id="tab-home" class="tab-content">
+            <!-- Hero Section -->
+            <div class="relative forest-gradient text-ivory py-24 lg:py-32 overflow-hidden">
+                <div class="absolute inset-0 opacity-10 bg-[radial-gradient(#D4AF37_1px,transparent_1px)] [background-size:16px_16px]"></div>
+                <div class="absolute right-0 top-1/2 -translate-y-1/2 translate-x-1/4 opacity-15 pointer-events-none w-[600px] h-[600px]">
+                    <img src="https://storage.googleapis.com/gweb-cloud-ai-prod.appspot.com/canvas/uploads/1_fdc5476a-5c1e-450f-a0af-66ed44405900.png" alt="Watermark" class="w-full h-full object-contain filter grayscale invert">
+                </div>
+
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                    <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+                        <div class="inline-flex items-center gap-2 bg-gold/20 border border-gold/40 px-4 py-1.5 rounded-full text-gold text-xs font-semibold tracking-widest uppercase">
+                            <i class="fa-solid fa-shield-cat"><span>ফ্যাহিম সারভাইভাল সার্টিফাইড লাক্সারি</span></i>
+                        </div>
+                        <h1 class="font-serif text-4xl sm:text-6xl lg:text-7xl font-bold leading-tight tracking-tight">
+                            লা ডিনক্স - ফ্যাহিমের <span class="text-gold-gradient italic">এক্স-ডাইনোসর প্রেমিকার</span> স্মৃতিতে নির্মিত!
+                        </h1>
+                        <p class="text-stone-300 text-lg sm:text-xl font-light max-w-2xl mx-auto lg:mx-0 leading-relaxed">
+                            যেহেতু ফ্যাহিম এখন 'ডাইনোসর' শব্দটা শুনলেই কান্নায় ভেঙে পড়ে, তাই আমরা নিয়ে এসেছি বিশ্বের একমাত্র প্রিমিয়াম সারকাস্টিক লাক্সারি ব্র্যান্ড যা তার ইজ্জতের সলিল সমাধি ঘটিয়েছে।
+                        </p>
+                        <div class="flex flex-wrap justify-center lg:justify-start gap-4 pt-4">
+                            <button onclick="switchTab('shop'); triggerRandomSavageToast('শপে প্রবেশ করলেন। ফ্যাহিমের ওয়ালেট কাঁপছে!');" class="gold-gradient text-forestDark font-bold px-8 py-4 rounded-xl shadow-xl hover:opacity-95 transition-all transform hover:-translate-y-0.5 flex items-center gap-3">
+                                <span>কালেকশন দেখুন</span>
+                                <i class="fa-solid fa-arrow-right"></i>
+                            </button>
+                            <button onclick="switchTab('roast'); triggerRandomSavageToast('রোস্ট জেনারেটর মোড অন!');" class="bg-transparent border-2 border-gold text-gold hover:bg-gold hover:text-forestDark font-bold px-8 py-4 rounded-xl transition-all">
+                                ফ্যাহিমকে রোস্ট করুন
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Hero Card -->
+                    <div class="lg:col-span-5 flex justify-center">
+                        <div class="bg-forestDark/80 border border-gold/40 rounded-3xl p-8 shadow-2xl backdrop-blur-xl max-w-md w-full relative">
+                            <div class="absolute -top-4 -right-4 bg-gold text-forestDark font-bold text-xs px-3 py-1 rounded-full shadow">
+                                লাইভ ট্রমা মিটার
+                            </div>
+                            <div class="text-center mb-6">
+                                <img src="/Logo.png" class="w-20 h-20 mx-auto mb-3 rounded-full bg-ivory p-2 object-contain shadow-lg" alt="La Dinox logo">
+                                <h3 class="font-serif text-2xl font-bold text-ivory">ফ্যাহিম ডাইনোসর ইনডেক্স</h3>
+                                <p class="text-stone-400 text-xs mt-1">ব্রেকআপের পর মানসিক ক্ষতির লাইভ ডেটা</p>
+                            </div>
+                            <div class="space-y-4">
+                                <div class="bg-white/5 p-4 rounded-xl border border-white/10 flex justify-between items-center cursor-pointer hover:bg-white/10 transition-colors" onclick="triggerRandomSavageToast('কান্নার পরিমাণ ১০০ ডলিস লিটার ছাড়িয়ে গেছে!')">
+                                    <span class="text-stone-300 text-sm">কান্নার পরিমাণ</span>
+                                    <span class="text-gold font-bold text-lg">১০০ ডলিস লিটার</span>
+                                </div>
+                                <div class="bg-white/5 p-4 rounded-xl border border-white/10 flex justify-between items-center cursor-pointer hover:bg-white/10 transition-colors" onclick="triggerRandomSavageToast('বন্ধুরা প্রতিদিন ১০০ বার ফ্যাহিমকে নিয়ে হাসাহাসি করে।')">
+                                    <span class="text-stone-300 text-sm">বন্ধুদের ট্রোল রেট</span>
+                                    <span class="text-gold font-bold text-lg">সর্বোচ্চ (৯৯.৯%)</span>
+                                </div>
+                                <div class="bg-white/5 p-4 rounded-xl border border-white/10 flex justify-between items-center cursor-pointer hover:bg-white/10 transition-colors" onclick="triggerRandomSavageToast('ফ্যাহিমের বাকি থাকা ইজ্জত শূন্যের কোঠায়!')">
+                                    <span class="text-stone-300 text-sm">বাকি থাকা ইজ্জত</span>
+                                    <span class="text-red-400 font-bold text-lg">০.০০%</span>
+                                </div>
+                            </div>
+                            <div class="mt-6 pt-6 border-t border-white/10 text-center">
+                                <span class="text-xs text-stone-400 uppercase tracking-widest block mb-2">পরবর্তী ব্রেকআপ অ্যানিভার্সারি বাকি:</span>
+                                <div id="countdown-timer" class="text-gold font-mono text-xl font-bold">০০ : ২৪ : ৫৯</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Ticker bar -->
+            <div class="bg-gold text-forestDark py-3 px-4 overflow-hidden whitespace-nowrap font-bold text-sm tracking-wider uppercase cursor-pointer" onclick="triggerRandomSavageToast('টিকার বারে ক্লিক করেছেন! ফ্যাহিম এখনও বিশ্বাস করতে পারছে না যে সে সিঙ্গেল।')">
+                <div class="inline-block animate-[marquee_25s_linear_infinite]">
+                    🐊 শর্ট আর্মস পলো শার্ট • ইও দে এক্স-টিয়ার্স পারফিউম • ডাইনোসর বোন ফোন কেস • ফ্যাহিমের স্পেশাল টিস্যু পেপার • ১০০% এক্স গ্যারান্টি • ফ্যাহিমের ইজ্জত ফ্রি গিফট •
+                </div>
+            </div>
+
+            <!-- Featured Products Preview -->
+            <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+                <div class="text-center max-w-2xl mx-auto mb-16">
+                    <span class="text-gold text-xs font-bold tracking-widest uppercase block mb-2">সিলেক্টেড এক্সক্লুসিভ আইটেম</span>
+                    <h2 class="font-serif text-4xl sm:text-5xl font-bold text-forest">সবচেয়ে জনপ্রিয় রোস্টিং প্রোডাক্ট</h2>
+                    <p class="text-stone-600 mt-3">অত্যাধুনিক ফ্যাব্রিক এবং চরম মাত্রার সারকাস্টিক হাসির সমাহার। যে কোনোটিতে ক্লিক করে বিস্তারিত দেখুন।</p>
+                </div>
+
+                <div id="featured-products-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Populated via JS -->
+                </div>
+
+                <div class="text-center mt-12">
+                    <button onclick="switchTab('shop'); triggerRandomSavageToast('সব পণ্য দেখতে শপে চলে গেলেন।');" class="bg-forest text-ivory hover:bg-forestDark font-semibold px-8 py-4 rounded-xl transition-all shadow-lg inline-flex items-center gap-3">
+                        <span>সব পণ্য দেখুন</span>
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                </div>
+            </section>
+        </section>
+
+
+        <!-- ================= TAB 2: THE COLLECTION (SHOP) ================= -->
+        <section id="tab-shop" class="tab-content hidden py-16">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <!-- Shop Header -->
+                <div class="text-center max-w-2xl mx-auto mb-12">
+                    <span class="text-gold text-xs font-bold tracking-widest uppercase block mb-2">লাক্সারি ক্যাটালগ</span>
+                    <h1 class="font-serif text-4xl sm:text-5xl font-bold text-forest">ডাইনোসর সারভাইভার কালেকশন</h1>
+                    <p class="text-stone-600 mt-3">কারণ লাক্সারি ব্র্যান্ডের পলো পরে এক্সকে ভুলে থাকা অনেক সহজ! প্রতিটি পণ্যে রয়েছে ফ্যাহিমের কান্নার ইতিহাস।</p>
+                </div>
+
+                <!-- Category Filters -->
+                <div class="flex flex-wrap justify-center gap-3 mb-12">
+                    <button onclick="filterProducts('all', this); triggerRandomSavageToast('সব প্রোডাক্ট ফিল্টার সিলেক্ট করা হলো।');" class="category-btn active-cat bg-forest text-ivory px-6 py-2.5 rounded-full text-sm font-semibold transition-all shadow">সব পণ্য</button>
+                    <button onclick="filterProducts('Apparel', this); triggerRandomSavageToast('অ্যাপারেল ফিল্টার: ফ্যাহিমের শর্ট আর্মস পলো শার্ট।');" class="category-btn bg-stone-200 text-stone-700 hover:bg-stone-300 px-6 py-2.5 rounded-full text-sm font-semibold transition-all">পলো ও অ্যাপারেল</button>
+                    <button onclick="filterProducts('Survival Gear', this); triggerRandomSavageToast('সারভাইভাল গিয়ার ফিল্টার: ডাইনোসর আক্রমণ থেকে বাঁচার গিয়ার।');" class="category-btn bg-stone-200 text-stone-700 hover:bg-stone-300 px-6 py-2.5 rounded-full text-sm font-semibold transition-all">সারভাইভাল গিয়ার</button>
+                    <button onclick="filterProducts('Coping', this); triggerRandomSavageToast('কোপিং ফিল্টার: ব্রেকআপের ব্যথা ভুলানোর ম্যাজিক উপাদান।');" class="category-btn bg-stone-200 text-stone-700 hover:bg-stone-300 px-6 py-2.5 rounded-full text-sm font-semibold transition-all">ব্রেকআপ কোপিং</button>
+                    <button onclick="filterProducts('Luxury', this); triggerRandomSavageToast('লাক্সারি টিয়ার্স: খাঁটি এক্সের চোখের জলের নির্যাস।');" class="category-btn bg-stone-200 text-stone-700 hover:bg-stone-300 px-6 py-2.5 rounded-full text-sm font-semibold transition-all">লাক্সারি টিয়ার্স</button>
+                </div>
+
+                <!-- Products Grid -->
+                <div id="shop-products-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Populated dynamically via JS -->
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ================= TAB 3: FAHIM'S HALL OF TEARS (ANUTAP GALLERY) ================= -->
+        <section id="tab-arena" class="tab-content hidden py-16">
+            <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
+                <!-- Header -->
+                <div class="text-center max-w-2xl mx-auto">
+                    <span class="text-gold text-xs font-bold tracking-widest uppercase block mb-2">কমিউনিটি রোস্ট কর্নার</span>
+                    <h1 class="font-serif text-4xl sm:text-5xl font-bold text-forest">ফ্যাহিমের অনুতাপ গ্যালারি ও রোস্ট বোর্ড</h1>
+                    <p class="text-stone-600 mt-3">ফ্যাহিম এবং তার ডাইনোসর এক্স নিয়ে আপনার সেরা রোস্ট বা মন্তব্য এখানে শেয়ার করুন। ফ্যাহিম প্রতিদিন রাতে এই পেজটি দেখে চোখের জলে বালিশ ভিজায়।</p>
+                </div>
+
+                <!-- Roast Generator Box -->
+                <div class="bg-white border border-gold/40 rounded-3xl p-8 shadow-xl">
+                    <div class="flex items-center justify-between mb-6 flex-wrap gap-4">
+                        <div>
+                            <h3 class="font-serif text-2xl font-bold text-forest">ফ্যাহিম রোস্ট জেনারেটর</h3>
+                            <p class="text-xs text-stone-500">একটি ক্লিক করুন এবং ফ্যাহিমের জন্য সেরা সারকাস্টিক ডায়লগ পান।</p>
+                        </div>
+                        <button onclick="generateRandomRoastQuote(); triggerRandomSavageToast('নতুন রোস্ট জেনারেট করা হলো! ফ্যাহিমের বুকে তীর বিঁধল।');" class="gold-gradient text-forestDark font-bold px-5 py-2.5 rounded-xl shadow hover:opacity-90 transition-all text-sm">
+                            <i class="fa-solid fa-wand-magic-sparkles mr-2"></i> নতুন রোস্ট জেনারেট করুন
+                        </button>
+                    </div>
+                    <div class="bg-stone-100 p-6 rounded-2xl border border-stone-200 text-center cursor-pointer" onclick="triggerRandomSavageToast('উদ্ধৃতিতে ক্লিক করেছেন! ফ্যাহিমের ট্রমা আরও বেড়ে গেল।')">
+                        <p id="arena-quote-display" class="font-serif italic text-xl text-forest font-semibold">"ফ্যাহিম ভেবেছিল এক্সকে সে ডাইনোসর বলে ডাকবে, কিন্তু শেষ পর্যন্ত এক্সই তাকে চিরকালের মতো ফসিল বানিয়ে দিল!"</p>
+                    </div>
+                </div>
+
+                <!-- Submit Roast Form & Wall -->
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+                    <!-- Submit Form -->
+                    <div class="lg:col-span-5 bg-forest text-ivory p-8 rounded-3xl shadow-xl space-y-6">
+                        <h3 class="font-serif text-2xl font-bold text-gold">ফ্যাহিমকে রোস্ট করুন</h3>
+                        <p class="text-xs text-stone-300">যত পারুন ঝাল রোস্ট দিন, ডাইনোসর বা ফসিল শব্দ বাধ্যতামূলক।</p>
+                        
+                        <form id="roast-form" onsubmit="submitUserRoast(event)" class="space-y-4">
+                            <div>
+                                <label class="block text-xs uppercase tracking-wider font-semibold text-gold mb-1">আপনার নাম / গ্যাং</label>
+                                <input type="text" id="roast-author" required placeholder="যেমন: আশোরজ ভাই ও বন্ধুরা" 
+                                       class="w-full bg-white/10 border border-white/20 rounded-xl px-4 py-3 text-ivory placeholder-stone-400 focus:outline-none focus:border-gold">
+                            </div>
+                            <div>
+                                <label class="block text-xs uppercase tracking-wider font-semibold text-gold mb-1">আপনার রোস্ট</label>
+                                <textarea id="roast-text" rows="4" required placeholder="ফ্যাহিমের ব্রেকআপ স্টোরি শুনে এখন ডাইনোসররাও কেঁদে ফেলে..." 
+                                          class="w-full bg-white/10 border border-white/20 rounded-xl px-4 py-3 text-ivory placeholder-stone-400 focus:outline-none focus:border-gold"></textarea>
+                            </div>
+                            <button type="submit" class="w-full gold-gradient text-forestDark font-bold py-3.5 rounded-xl shadow-lg hover:opacity-95 transition-all">
+                                রোস্ট বোর্ডে প্রকাশ করুন <i class="fa-solid fa-paper-plane ml-2"></i>
+                            </button>
+                        </form>
+                    </div>
+
+                    <!-- Roasts Wall -->
+                    <div class="lg:col-span-7 space-y-4">
+                        <div class="flex items-center justify-between">
+                            <h3 class="font-serif text-2xl font-bold text-forest">পাবলিক রোস্ট ফিড</h3>
+                            <span class="text-xs font-semibold text-stone-500 bg-stone-200 px-3 py-1 rounded-full cursor-pointer" onclick="triggerRandomSavageToast('লাইভ ফিড সবসময় ফ্যাহিমের কান্নায় ভেজা।')">লাইভ আপডেট</span>
+                        </div>
+                        <div id="roasts-container" class="space-y-4 max-h-[600px] overflow-y-auto pr-2">
+                            <!-- Populated via JS -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ================= TAB 4: ROAST GENERATOR / EXTINCTION TEST ================= -->
+        <section id="tab-roast" class="tab-content hidden py-16">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+                <div class="text-center space-y-4">
+                    <span class="text-gold text-xs font-bold tracking-widest uppercase block">ইন্টরাক্টিভ রোস্ট ইঞ্জিন</span>
+                    <h1 class="font-serif text-4xl sm:text-6xl font-bold text-forest">ফ্যাহিম এক্সটিংকশন টেস্ট ও রোস্ট জেনারেটর</h1>
+                    <p class="text-stone-600 text-lg">নিচের বোতামে ক্লিক করে জানুন ফ্যাহিমের ব্রেকআপের ট্রমা কোন পর্যায়ে পৌঁছেছে।</p>
+                </div>
+
+                <div class="bg-white border border-gold/40 rounded-3xl p-8 sm:p-12 shadow-xl space-y-8 text-center">
+                    <div class="w-24 h-24 bg-forest/10 rounded-full flex items-center justify-center mx-auto text-forest text-4xl">
+                        <i class="fa-solid fa-meteor animate-bounce"></i>
+                    </div>
+                    <div id="roast-engine-output" class="font-serif text-2xl text-forest font-bold min-h-[100px] flex items-center justify-center px-4">
+                        "বোতামে ক্লিক করে ফ্যাহিমের ট্রমা লেভেল চেক করুন!"
+                    </div>
+                    <div class="flex flex-wrap justify-center gap-4 pt-4">
+                        <button onclick="runRoastEngine(1); triggerRandomSavageToast('লেভেল ১ রোস্ট: ফ্যাহিমের ঘুম হারাম!');" class="gold-gradient text-forestDark font-bold px-6 py-3.5 rounded-xl shadow-lg hover:opacity-90 transition-all">
+                            লেভেল ১: শর্ট আর্মস টেস্ট
+                        </button>
+                        <button onclick="runRoastEngine(2); triggerRandomSavageToast('লেভেল ২ রোস্ট: এক্সের কথা মনে করিয়ে দেওয়া হলো!');" class="forest-gradient text-ivory font-bold px-6 py-3.5 rounded-xl shadow-lg hover:opacity-90 transition-all">
+                            লেভেল ২: ডাইনোসর ফসিল স্ক্যান
+                        </button>
+                        <button onclick="runRoastEngine(3); triggerRandomSavageToast('লেভেল ৩ রোস্ট: ফ্যাহিমের ইজ্জতের চূড়ান্ত সমাধি!');" class="bg-red-800 text-ivory font-bold px-6 py-3.5 rounded-xl shadow-lg hover:opacity-90 transition-all">
+                            লেভেল ৩: মহা-ব্রেকআপ প্রলয়
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ================= TAB 5: ABOUT US / BRAND MANIFESTO ================= -->
+        <section id="tab-about" class="tab-content hidden py-16">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+                <div class="text-center space-y-4">
+                    <span class="text-gold text-xs font-bold tracking-widest uppercase block">প্রিমিয়াম প্যারোডি ব্র্যান্ড</span>
+                    <h1 class="font-serif text-4xl sm:text-6xl font-bold text-forest">লা ডিনক্স ব্র্যান্ড মেনিফেস্টো</h1>
+                    <p class="text-stone-600 text-lg">হোয়াটসঅ্যাপ গ্রুপ চ্যাটের ধ্বংসস্তূপ থেকে জন্ম নেওয়া একমাত্র লাক্সারি ফ্যাশন হাউজ।</p>
+                </div>
+
+                <div class="bg-white border border-gold/40 rounded-3xl p-8 sm:p-12 shadow-xl space-y-8">
+                    <div class="flex items-center justify-center">
+                        <img src="Logo.png" class="w-32 h-32 rounded-full bg-ivory p-2 object-contain shadow-md cursor-pointer" onclick="triggerRandomSavageToast('লোগোতে ক্লিক করেছেন! ফ্যাহিমের এক্স এটি দেখে ব্লক করে দিয়েছে।')" alt="Logo">
+                    </div>
+                    
+                    <div class="space-y-6 text-stone-700 leading-relaxed font-light text-base sm:text-lg">
+                        <p>
+                            লা ডিনক্স প্রতিষ্ঠিত হয়েছিল ঠিক সেই মুহূর্তে যখন ফ্যাহিম তার বন্ধুদের আড্ডায় কসম কেটেছিল যে সে আর জীবনেও <em>"ডাইনোসর"</em> শব্দটা মুখে আনবে না। কিন্তু বন্ধুরাও ছাড়বার পাত্র নয়!
+                        </p>
+                        <p>
+                            ল্যাকোস্টের কুমিরের জায়গায় আমাদের লোগো হলো ক্ষিপ্র ও রাগী টি-রেক্স ডাইনোসর—যা ফ্যাহিমের এক্স-গার্লফ্রেন্ডের সেই ঐতিহাসিক নিকনেমের প্রতীক।
+                        </p>
+                        <blockquote class="border-l-4 border-gold pl-6 py-2 italic font-serif text-2xl text-forest font-semibold">
+                            "যখন এক্স চলে যায়, তখন লা ডিনক্স আপনাকে প্রিমিয়াম স্টাইলে বাঁচিয়ে রাখে।"
+                        </blockquote>
+                        <p>
+                            আমাদের প্রতিটি পলো শার্টে রয়েছে এক ফোঁটা দুঃখ, প্রতিটি পারফিউমে রয়েছে এক্সের ব্লক করা নাম্বারের সুবাস, আর প্রতিটি পোশাকে রয়েছে ফ্যাহিমের প্রতি অপরিসীম ভালোবাসা ও উপহাস।
+                        </p>
+                    </div>
+
+                    <div class="pt-8 border-t border-stone-200 flex flex-wrap justify-between items-center gap-4">
+                        <div>
+                            <span class="font-serif font-bold text-xl text-forest block">ফ্যাহিম সারভাইভাল স্কোয়াড</span>
+                            <span class="text-xs text-stone-500">ঢাকা ও প্যারিস ফ্যাশন উইকের সারকাস্টিক সদস্যবৃন্দ</span>
+                        </div>
+                        <button onclick="switchTab('shop'); triggerRandomSavageToast('শপে চলে গেলেন।');" class="forest-gradient text-ivory font-bold px-6 py-3 rounded-xl shadow hover:opacity-90 transition-all">
+                            কালেকশন দেখুন
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ================= PRODUCT DETAIL MODAL ================= -->
+    <div id="product-modal" class="fixed inset-0 z-50 bg-black/70 backdrop-blur-md hidden flex items-center justify-center p-4">
+        <div class="bg-ivory border border-gold/50 rounded-3xl p-8 max-w-2xl w-full shadow-2xl space-y-6 relative max-h-[90vh] overflow-y-auto">
+            <button onclick="closeProductModal(); triggerRandomSavageToast('প্রোডাক্ট ডিটেইল বন্ধ করা হলো।');" class="absolute top-6 right-6 text-charcoal hover:text-forest text-2xl font-bold">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <div id="product-modal-content" class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                <!-- Populated via JS -->
+            </div>
+        </div>
+    </div>
+
+    <!-- ================= CART DRAWER ================= -->
+    <div id="cart-modal" class="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm hidden flex justify-end transition-opacity duration-300">
+        <div class="bg-ivory w-full max-w-md h-full shadow-2xl flex flex-col justify-between transform translate-x-full transition-transform duration-300" id="cart-drawer">
+            <!-- Cart Header -->
+            <div class="p-6 border-b border-gold/20 flex items-center justify-between bg-forest text-ivory">
+                <div class="flex items-center gap-3">
+                    <img src="Logo.png" class="w-8 h-8 rounded-full bg-ivory p-1 object-contain">
+                    <h3 class="font-serif text-xl font-bold">আপনার এক্সক্লুসিভ কার্ট</h3>
+                </div>
+                <button onclick="toggleCart(); triggerRandomSavageToast('কার্ট বন্ধ করা হলো। ফ্যাহিম স্বস্তির নিঃশ্বাস ফেলল।');" class="text-ivory hover:text-gold text-xl p-2">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+
+            <!-- Cart Items List -->
+            <div id="cart-items-container" class="flex-grow overflow-y-auto p-6 space-y-4">
+                <!-- Populated via JS -->
+            </div>
+
+            <!-- Cart Footer -->
+            <div class="p-6 border-t border-gold/20 bg-white space-y-4">
+                <div class="flex justify-between items-center text-lg font-bold text-forest">
+                    <span>মোট খরচ (ফ্যাহিমের পকেট থেকে):</span>
+                    <span id="cart-total">৳০.০০</span>
+                </div>
+                <button onclick="openCheckoutModal(); triggerRandomSavageToast('চেকআউট মোডে প্রবেশ করলেন। ফ্যাহিমের হার্টবিট বেড়ে গেছে!');" class="w-full gold-gradient text-forestDark font-bold py-4 rounded-xl shadow-lg hover:opacity-95 transition-all text-center">
+                    পেমেন্ট ও চেকআউটে যান
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ================= MULTI-STEP CHECKOUT MODAL ================= -->
+    <div id="checkout-modal" class="fixed inset-0 z-50 bg-black/70 backdrop-blur-md hidden flex items-center justify-center p-4">
+        <div class="bg-ivory border border-gold/50 rounded-3xl p-8 max-w-lg w-full shadow-2xl space-y-6 relative max-h-[95vh] overflow-y-auto">
+            <div class="flex justify-between items-center border-b border-stone-200 pb-4">
+                <h3 class="font-serif text-2xl font-bold text-forest">অত্যাধুনিক সারকাস্টিক চেকআউট</h3>
+                <button onclick="closeCheckoutModal(); triggerRandomSavageToast('চেকআউট বাতিল করা হলো।');" class="text-stone-500 hover:text-forest text-xl"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            
+            <form id="checkout-form" onsubmit="processCheckoutSubmit(event)" class="space-y-4">
+                <div>
+                    <label class="block text-xs font-bold uppercase text-forest mb-1">অর্ডারের প্রাপক (ফ্যাহিম ছাড়া অন্য কেউ হলে ভালো)</label>
+                    <input type="text" id="chk-name" required value="ফ্যাহিম (কান্নারত)" class="w-full bg-white border border-stone-300 rounded-xl px-4 py-3 text-charcoal focus:outline-none focus:border-gold">
+                </div>
+                <div>
+                    <label class="block text-xs font-bold uppercase text-forest mb-1">এক্স-গার্লফ্রেন্ডের অনুমোদন কোড (যদি থাকে)</label>
+                    <input type="text" placeholder="যেমন: 'BLOCK_404_NOT_FOUND'" class="w-full bg-white border border-stone-300 rounded-xl px-4 py-3 text-charcoal focus:outline-none focus:border-gold">
+                </div>
+                <div>
+                    <label class="block text-xs font-bold uppercase text-forest mb-1">ডেলিভারি ঠিকানা</label>
+                    <textarea rows="2" required class="w-full bg-white border border-stone-300 rounded-xl px-4 py-3 text-charcoal focus:outline-none focus:border-gold">ফ্যাহিমের অন্ধকার রুম, যেখানে ডাইনোসরের পোস্টার টাঙানো আছে।</textarea>
+                </div>
+                <div class="bg-stone-100 p-4 rounded-xl text-xs text-stone-600 space-y-1">
+                    <p class="font-bold text-forest">সতর্কতা:</p>
+                    <p>পেমেন্ট সম্পন্ন করার পর অর্ডার বাতিল করা যাবে না, ঠিক যেমন ফ্যাহিমের এক্সের চলে যাওয়া বাতিল করা যায় না।</p>
+                </div>
+                <button type="submit" class="w-full forest-gradient text-ivory font-bold py-4 rounded-xl shadow-lg hover:opacity-95 transition-all">
+                    পেমেন্ট কনফার্ম করুন ও ইজ্জত বিসর্জন দিন <i class="fa-solid fa-arrow-right ml-2"></i>
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- ================= CHECKOUT DONE / SUCCESS MODAL ================= -->
+    <div id="success-modal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-md hidden flex items-center justify-center p-4">
+        <div class="bg-ivory border border-gold/50 rounded-3xl p-8 max-w-lg w-full shadow-2xl space-y-6 text-center">
+            <div class="w-20 h-20 bg-gold/20 text-gold rounded-full flex items-center justify-center mx-auto text-4xl">
+                <i class="fa-solid fa-face-laugh-squint"></i>
+            </div>
+            <h3 class="font-serif text-3xl font-bold text-forest">অর্ডার সফলভাবে সম্পন্ন হয়েছে!</h3>
+            <p class="text-stone-700 text-base leading-relaxed">
+                অভিনন্দন! আপনার পেমেন্ট সফলভাবে ফ্যাহিমের গোপন ক্রেডিট কার্ড থেকে কেটে নেওয়া হয়েছে। আপনার ট্রমা রিলিফ কিট ও ডাইনোসর টিস্যু খুব শীঘ্রই ফ্যাহিমের রুমের দরজায় পৌঁছে যাবে।
+            </p>
+            <div class="bg-stone-100 p-4 rounded-2xl border border-stone-200 text-xs text-stone-600 italic">
+                "টাকা তো গেলই, সাথে ফ্যাহিমের বাকি থাকা ইজ্জতও চিরকালের মতো হাওয়া হয়ে গেল!"
+            </div>
+            <button onclick="closeSuccessModal(); triggerRandomSavageToast('নতুন কেনাকাটা শুরু করুন!');" class="w-full gold-gradient text-forestDark font-bold py-3.5 rounded-xl shadow-lg hover:opacity-95 transition-all">
+                হোমে ফিরে যান ও আবার হাসুন
+            </button>
+        </div>
+    </div>
+
+    <!-- TOAST NOTIFICATION CONTAINER -->
+    <div id="toast-container" class="fixed bottom-6 right-6 z-50 space-y-3 pointer-events-none"></div>
+
+    <!-- Footer with Credit to Aishorjo Vai -->
+    <footer class="bg-forestDark text-ivory border-t border-gold/20 mt-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 grid grid-cols-1 md:grid-cols-4 gap-8">
+            <div class="space-y-4 md:col-span-2">
+                <div class="flex items-center gap-3">
+                    <img src="/Logo.png" alt="La Dinox logo" class="w-14 h-14 rounded-full bg-ivory p-2 object-contain shadow-md">
+                    <span class="font-serif font-bold text-3xl tracking-wider text-gold">লা ডিনক্স</span>
+                </div>
+                <p class="text-stone-400 text-sm max-w-md leading-relaxed">
+                    ব্রেকআপ ট্রমা, শর্ট আর্মস এবং ডাইনোসর এক্স-গার্লফ্রেন্ডের স্মৃতি থেকে বাঁচার জন্য একমাত্র বিশ্বস্ত লাক্সারি ব্র্যান্ড।
+                </p>
+                <div class="text-gold text-xs font-semibold pt-2">
+                    Developed with pure hatred and brotherly love by Aishorjo Vai (ঐশ্বর্য ভাই).
+                </div>
+            </div>
+            <div>
+                <h4 class="font-serif font-bold text-gold mb-3 text-lg">নেভিগেশন</h4>
+                <ul class="space-y-2 text-sm text-stone-300">
+                    <li><button onclick="switchTab('home')" class="hover:text-gold transition-colors">হোম</button></li>
+                    <li><button onclick="switchTab('shop')" class="hover:text-gold transition-colors">কালেকশন / শপ</button></li>
+                    <li><button onclick="switchTab('arena')" class="hover:text-gold transition-colors">ফ্যাহিমের অনুতাপ গ্যালারি</button></li>
+                    <li><button onclick="switchTab('roast')" class="hover:text-gold transition-colors">রোস্ট জেনারেটর</button></li>
+                    <li><button onclick="switchTab('about')" class="hover:text-gold transition-colors">মেনিফেস্টো</button></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="font-serif font-bold text-gold mb-3 text-lg">ডিসক্লেইমার</h4>
+                <p class="text-xs text-stone-400 leading-relaxed">
+                    ল্যা-কোষ্টে বা জুরাসিক পার্কের সাথে কোনো সম্পর্ক নেই। ফ্যাহিম কাঁদতে কাঁদতে এই ব্র্যান্ডে মৌখিক অনুমতি দিয়েছে। সমস্ত সেল ফাইনাল ও ফেরত অযোগ্য।
+                </p>
+            </div>
+        </div>
+        <div class="border-t border-white/10 py-6 text-center text-xs text-stone-500">
+            &copy; ২০২৬ লা ডিনক্স লাক্সারি গ্রুপ ও ঐশ্বর্য ভাই। সমস্ত অধিকার সংরক্ষিত। এক্স ফেরত অযোগ্য।
+        </div>
+    </footer>
+
+    <!-- JavaScript Application Logic -->
+    <script>
+        // --- PRODUCTS DATABASE WITH EXTREME SARCASM IN BANGLA ---
+        const products = [
+            {
+                id: 1,
+                name: "লা ডিনক্স শর্ট আর্মস ক্রোডাইল পলো",
+                category: "Apparel",
+                price: 4206,
+                badge: "বেস্টসেলার",
+                image: "https://images.unsplash.com/photo-1625910513418-7c4712753f2d?auto=format&fit=crop&w=600&q=80",
+                description: "ফ্যাহিমের মতো হৃতস্ব হৃদয় ও এক্স-ডাইনোসর ট্রমা ভোলার জন্য বেস্ট। গায়ের রঙ সবুজ, কারণ আপনার গার্লফ্রেন্ড যাওয়ার পর আপনার মনও জঙ্গলে পরিণত হয়েছে। শর্ট আর্মস ডিজাইনের কারণে আপনি আর কাউকে জড়িয়ে ধরতে পারবেন না!",
+                roastNote: "এই পলো গায়ে জড়িয়ে ফ্যাহিম যখন আয়নার সামনে দাঁড়ায়, তখন টি-রেক্সও লজ্জা পেয়ে মাথা নিচু করে ফেলে।"
+            },
+            {
+                id: 2,
+                name: "ইও দে এক্স-টিয়ার্স পারফিউম",
+                category: "Luxury",
+                price: 9999,
+                badge: "লিমিটেড এডিশন",
+                image: "https://images.unsplash.com/photo-1541643600914-78b084683601?auto=format&fit=crop&w=600&q=80",
+                description: "ডাইনোসর মার্কা এক্সের চোখের জলের নির্যাস দিয়ে তৈরি। গায়ে মাখলে আশেপাশে কোনো এক্স ঘেষবে না, ১০০% গ্যারান্টি! এটি স্প্রে করার সাথে সাথেই আপনার ফোনে 'Blocked' লেখা ভেসে উঠবে।",
+                roastNote: "ফ্যাহিম এই পারফিউম পুরো বোতল গায়ে ঢেলে দেওয়ার পরও এক্স তাকে আনব্লক করেনি।"
+            },
+            {
+                id: 3,
+                name: "ডাইনোসর বোন ফোন কেস",
+                category: "Survival Gear",
+                price: 1500,
+                badge: "প্রো সিরিজ",
+                image: "https://images.unsplash.com/photo-1617083934579-11d17963d11b?auto=format&fit=crop&w=600&q=80",
+                description: "ব্রেকআপের পর ফোনে মেসেজ না আসার কষ্ট সহ্য করার জন্য পাথরের মতো শক্তিশালী কেস। এতে হাত দিয়ে চাপ দিলে ফ্যাহিমের কান্নার আওয়াজ শোনা যায়।",
+                roastNote: "মেসেজ না আসার কারণে ফ্যাহিম এই ফোন কেস দিয়ে নিজের মাথাতেই বাড়ি মারে।"
+            },
+            {
+                id: 4,
+                name: "ব্রেকআপ স্পেশ্যাল টিস্যু পেপার প্যাক",
+                category: "Coping",
+                price: 500,
+                badge: "সিল্ক সফট",
+                image: "https://images.unsplash.com/photo-1584100936595-c0654b55a2e2?auto=format&fit=crop&w=600&q=80",
+                description: "ফ্যাহিমের রাতের কান্না মোছার জন্য এক্সক্লুসিভ তিন স্তর বিশিষ্ট সিল্ক টিস্যু। প্রতিটি টিস্যুতে এক্সের অটোগ্রাফ দেওয়া আছে (যা ফ্যাহিম নিজে কল্পনা করে আঁকে)।",
+                roastNote: "এই এক প্যাক টিস্যু ফ্যাহিম মাত্র এক রাতেই শেষ করে ফেলছে।"
+            },
+            {
+                id: 5,
+                name: "ফসিল এনগেজমেন্ট রিং",
+                category: "Luxury",
+                price: 50000,
+                badge: "স্ট্যাটাস সিম্বল",
+                image: "https://images.unsplash.com/photo-1524805444758-089113d48a6d?auto=format&fit=crop&w=600&q=80",
+                description: "যেহেতু এনগেজমেন্ট হয়নি, তাই ডাইনোসর ফসিল রিং পরে রাজকীয়ভাবে সিঙেল থাকুন। ডায়মন্ডের চেয়ে ফসিলের দাম বেশি কারণ এটি ৬ কোটি বছরের পুরনো ট্রমা বহন করে।",
+                roastNote: "আশোর্য ভাই নিজে ফ্যাহিমের আঙুলে এই রিং পরিয়ে দেওয়ার চেষ্টা করেছিলেন, কিন্তু ফ্যাহিম শুধু কেঁদেছে।"
+            },
+            {
+                id: 6,
+                name: "ফ্যাহিমের ইমার্জেন্সি আইসক্রিম ও ট্রমা কিট",
+                category: "Coping",
+                price: 850,
+                badge: "এফডিএ অনুমোদিত",
+                image: "https://images.unsplash.com/photo-1563805042-7684c019e1cb?auto=format&fit=crop&w=600&q=80",
+                description: "মিন্ট চকলেট আইসক্রিম এবং 'সব দোষ উল্কাপিণ্ডের' লেখা সম্বলিত একটি সান্ত্বনা নোট। বরফের মতো ঠান্ডা যা ফ্যাহিমের পোড়া কপাল ঠান্ডা করবে।",
+                roastNote: "আইসক্রিম গলতে না গলতেই ফ্যাহিমের চোখের জলে বাটি ভেসে গেছে।"
+            }
+        ];
+
+        // --- SAVAGE ROAST QUOTES IN BANGLA ---
+        const roastQuotes = [
+            "ফ্যাহিম ভেবেছিল এক্সকে সে ডাইনোসর বলে ডাকবে, কিন্তু শেষ পর্যন্ত এক্সই তাকে চিরকালের মতো ফসিল বানিয়ে দিল!",
+            "ব্রেকআপের পর ফ্যাহিমের রুম থেকে এখন টি-রেক্সের গর্জন আর কান্নার আওয়াজ শোনা যায়। আশোর্য ভাই পাহারা দিচ্ছেন!",
+            "যে প্রেম টিকল না জুরাসিক পার্কের মতো, তার জন্য কি আর লাক্সারি পলো শার্ট ছাড়া চলে?",
+            "ফ্যাহিমের এক্স চলে যাওয়ার পর সে প্রতি রাতে আকাশের উল্কাপিণ্ড গুনে সময় কাটায় আর পুরনো চ্যাট পড়ে।",
+            "ডাইনোসর তো ৬ কোটি বছর আগে এক্সিন্ট হয়েছিল, আর ফ্যাহিমের রিলেশনশিপ ৬ মাসও টিকল না!",
+            "শর্ট আর্মস দিয়ে জড়িয়ে ধরার চেষ্টা করেছিল, কিন্তু এক্স আগেই রকেট গতিতে দৌড়ে পালিয়ে গেছে।",
+            "ফ্যাহিমের জীবনের একমাত্র রিয়েলিটি শো হলো তার এক্সের ব্লক লিস্টে নিজের প্রোফাইল পিকচার চেক করা।"
+        ];
+
+        // --- ROAST ENGINE QUOTES ---
+        const engineQuotes = {
+            1: "লেভেল ১ টেস্ট রেজাল্ট: ফ্যাহিমের হাতের শর্ট আর্মস সিন্ড্রোম শতভাগ প্রমাণিত! সে এক্সকে জড়িয়ে ধরতে গিয়ে নিজের কান্ট্রি বালিশ জড়িয়ে ধরে কেঁদে ফেলেছে।",
+            2: "লেভেল ২ স্ক্যান: ফ্যাহিমের মনের ভেতর ৬ কোটি বছরের পুরনো জুরাসিক ট্রমা পাওয়া গেছে। এক্সের নাম শুনলেই ওর হার্টবিট ডাবল হয়ে যায়।",
+            3: "লেভেল ৩ মহা-প্রলয়: ফ্যাহিমের সমস্ত ইজ্জত, মান-সম্মান এবং ব্রেকআপের সান্ত্বনা উল্কাপিণ্ডের আঘাতে ধূলিসাৎ হয়ে গেছে। আশোর্য ভাই এখন ওর জানাজা পড়ার প্রস্তুতি নিচ্ছেন!"
+        };
+
+        // --- ROASTS STATE ---
+        let roasts = [
+            { author: "ঐশ্বর্য ভাই", text: "ফ্যাহিম যখনই বলে যে সে ডাইনোসর শব্দ শুনতে পারে না, তখনই আমার হাসি পায়। চরম লেভেলের রোস্ট!" },
+            { author: "অনিক ভাই", text: "লা ডিনক্সের পলো শার্ট পরে ঘুরলে এক্স আর জীবনেও সামনে আসার সাহস করবে না।" },
+            { author: "মুন্নি ভাবি (আলমাসের ডা)", text: "ব্রেকআপ ট্রমাকে ফ্যাশনে রূপ দেওয়ার জন্য এই ব্র্যান্ডের জুড়ি মেলা ভার।" }
+        ];
+
+        // --- CART STATE ---
+        let cart = [];
+
+        // --- AUDIO SYNTHESIZER ---
+        function playDinoRoar() {
+            try {
+                const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+                const osc = audioCtx.createOscillator();
+                const gain = audioCtx.createGain();
+                osc.type = 'sawtooth';
+                osc.frequency.setValueAtTime(120, audioCtx.currentTime);
+                osc.frequency.exponentialRampToValueAtTime(40, audioCtx.currentTime + 0.8);
+                gain.gain.setValueAtTime(0.3, audioCtx.currentTime);
+                gain.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.9);
+                osc.connect(gain);
+                gain.connect(audioCtx.destination);
+                osc.start();
+                osc.stop(audioCtx.currentTime + 0.9);
+            } catch (e) {}
+        }
+
+        function playDingSound() {
+            try {
+                const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+                const osc = audioCtx.createOscillator();
+                const gain = audioCtx.createGain();
+                osc.type = 'sine';
+                osc.frequency.setValueAtTime(587.33, audioCtx.currentTime);
+                osc.frequency.exponentialRampToValueAtTime(880, audioCtx.currentTime + 0.15);
+                gain.gain.setValueAtTime(0.15, audioCtx.currentTime);
+                gain.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.3);
+                osc.connect(gain);
+                gain.connect(audioCtx.destination);
+                osc.start();
+                osc.stop(audioCtx.currentTime + 0.3);
+            } catch (e) {}
+        }
+
+        // --- RANDOM SAVAGE TOAST POPUP (Every click triggers extreme sarcasm) ---
+        function triggerRandomSavageToast(customMsg = "") {
+            const savageMessages = [
+                "🔥 ফ্যাহিমের এক্স এইমাত্র আপনার ক্লিক নোটিশ পেয়ে চটি দিয়ে মেসেজ পাঠিয়েছে!",
+                "🐊 হুশ! ডাইনোসর চলে এসেছে! ফ্যাহিম দ্রুত খাটের নিচে লুকিয়ে পড়েছে।",
+                "💀 ঐশ্বর্য ভাই বলেছেন: 'এই ক্লিকে ফ্যাহিমের আরও ১০ টাকা জরিমানা হলো!'",
+                "💔 ব্রেকআপ ট্রমা লেভেল ১০০% বেড়ে গেছে। টিস্যু পেপার রেডি রাখুন।",
+                "💎 লাক্সারি সারকাস্টিক মোড অ্যাক্টিভেটেড! ফ্যাহিমের ইজ্জত এখন ডিসকাউন্টে বিক্রি হচ্ছে।",
+                "⚖️ ফ্যাহিমের ওয়ালেট এখন কান্নাকাটি শুরু করেছে।"
+            ];
+            const msg = customMsg || savageMessages[Math.floor(Math.random() * savageMessages.length)];
+            showToast(msg);
+            playDingSound();
+        }
+
+        // --- NAVIGATION TABS ---
+        function switchTab(tabId) {
+            document.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden'));
+            document.querySelectorAll('.nav-btn').forEach(btn => {
+                btn.classList.remove('text-forest', 'border-b-2', 'border-forest');
+                btn.classList.add('text-charcoal/70');
+            });
+
+            const targetTab = document.getElementById(`tab-${tabId}`);
+            if (targetTab) targetTab.classList.remove('hidden');
+
+            const activeNav = document.getElementById(`nav-${tabId}`);
+            if (activeNav) {
+                activeNav.classList.remove('text-charcoal/70');
+                activeNav.classList.add('text-forest', 'border-b-2', 'border-forest');
+            }
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        }
+
+        // --- COUNTDOWN TIMER ---
+        function updateCountdown() {
+            const now = new Date();
+            const hours = 23 - now.getHours();
+            const minutes = 59 - now.getMinutes();
+            const seconds = 59 - now.getSeconds();
+            const timerEl = document.getElementById('countdown-timer');
+            if (timerEl) {
+                timerEl.innerText = `${String(hours).padStart(2, '০')} : ${String(minutes).padStart(2, '০')} : ${String(seconds).padStart(2, '০')}`;
+            }
+        }
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
+
+        // --- RENDER PRODUCTS ---
+        function renderProducts(categoryFilter = 'all') {
+            const featuredGrid = document.getElementById('featured-products-grid');
+            const shopGrid = document.getElementById('shop-products-grid');
+
+            const filtered = categoryFilter === 'all' 
+                ? products 
+                : products.filter(p => p.category === categoryFilter);
+
+            if (featuredGrid) {
+                featuredGrid.innerHTML = products.slice(0, 3).map(p => productCardHTML(p)).join('');
+            }
+
+            if (shopGrid) {
+                shopGrid.innerHTML = filtered.map(p => productCardHTML(p)).join('');
+            }
+        }
+
+        function productCardHTML(p) {
+            return `
+                <div class="bg-ivoryCard border border-gold/35 rounded-3xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 flex flex-col justify-between group">
+                    <div class="cursor-pointer" onclick="openProductModal(${p.id})">
+                        <div class="relative overflow-hidden rounded-2xl mb-4 bg-stone-100 aspect-square">
+                            <img src="${p.image}" alt="${p.name}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" onerror="this.src='https://placehold.co/600x600/0A3A24/D4AF37?text=La+Dinox'">
+                            <span class="absolute top-3 left-3 bg-gold text-forestDark font-bold text-xs px-3 py-1 rounded-full shadow">
+                                ${p.badge}
+                            </span>
+                        </div>
+                        <span class="text-xs text-gold font-semibold uppercase tracking-widest">${p.category}</span>
+                        <h3 class="font-serif font-bold text-xl text-forest mt-1 mb-2">${p.name}</h3>
+                        <p class="text-stone-600 text-sm mb-4 line-clamp-2 leading-relaxed">${p.description}</p>
+                    </div>
+                    <div class="flex items-center justify-between pt-4 border-t border-stone-200">
+                        <span class="font-bold text-2xl text-forest">৳${p.price.toLocaleString('bn-BD')}</span>
+                        <div class="flex gap-2">
+                            <button onclick="openProductModal(${p.id}); triggerRandomSavageToast('পণ্যের বিস্তারিত ও রোস্ট নোট খোলা হলো!');" class="bg-stone-200 text-stone-700 hover:bg-stone-300 p-2.5 rounded-xl font-semibold text-sm transition-all" title="ডিটেইলস দেখুন">
+                                <i class="fa-solid fa-eye"></i>
+                            </button>
+                            <button onclick="addToCart(${p.id});" class="bg-forest text-ivory hover:bg-forestDark px-4 py-2.5 rounded-xl font-semibold text-sm transition-all shadow flex items-center gap-2">
+                                <i class="fa-solid fa-bag-shopping"></i> কার্টে নিন
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        function filterProducts(cat, clickedButton) {
+            document.querySelectorAll('.category-btn').forEach(btn => {
+                btn.classList.remove('bg-forest', 'text-ivory');
+                btn.classList.add('bg-stone-200', 'text-stone-700');
+            });
+            const activeButton = clickedButton || document.querySelector(`.category-btn[onclick*="'${cat}'"]`);
+            if (activeButton) {
+                activeButton.classList.remove('bg-stone-200', 'text-stone-700');
+                activeButton.classList.add('bg-forest', 'text-ivory');
+            }
+            renderProducts(cat);
+        }
+
+        // --- PRODUCT DETAIL MODAL ---
+        function openProductModal(productId) {
+            const p = products.find(item => item.id === productId);
+            if (!p) return;
+
+            const modalContent = document.getElementById('product-modal-content');
+            modalContent.innerHTML = `
+                <div class="relative overflow-hidden rounded-2xl bg-stone-100 aspect-square">
+                    <img src="${p.image}" class="w-full h-full object-cover">
+                    <span class="absolute top-3 left-3 bg-gold text-forestDark font-bold text-xs px-3 py-1 rounded-full shadow">${p.badge}</span>
+                </div>
+                <div class="space-y-4">
+                    <span class="text-xs text-gold font-semibold uppercase tracking-widest">${p.category}</span>
+                    <h2 class="font-serif font-bold text-3xl text-forest">${p.name}</h2>
+                    <p class="text-stone-700 text-sm leading-relaxed">${p.description}</p>
+                    <div class="bg-amber-50 border border-gold/40 p-4 rounded-xl">
+                        <span class="text-xs font-bold text-gold uppercase block mb-1">ঐশ্বর্য ভাইয়ের বিশেষ রোস্ট নোট:</span>
+                        <p class="text-xs text-stone-700 italic">"${p.roastNote}"</p>
+                    </div>
+                    <div class="flex items-center justify-between pt-4">
+                        <span class="font-bold text-3xl text-forest">৳${p.price.toLocaleString('bn-BD')}</span>
+                        <button onclick="addToCart(${p.id}); closeProductModal();" class="gold-gradient text-forestDark font-bold px-6 py-3 rounded-xl shadow-lg hover:opacity-95 transition-all">
+                            কার্টে যোগ করুন ও ফ্যাহিমকে বিপদে ফেলুন
+                        </button>
+                    </div>
+                </div>
+            `;
+
+            document.getElementById('product-modal').classList.remove('hidden');
+        }
+
+        function closeProductModal() {
+            document.getElementById('product-modal').classList.add('hidden');
+        }
+
+        // --- CART LOGIC WITH EXTENSIVE SARCASM ---
+        function toggleCart() {
+            const modal = document.getElementById('cart-modal');
+            const drawer = document.getElementById('cart-drawer');
+            if (modal.classList.contains('hidden')) {
+                modal.classList.remove('hidden');
+                setTimeout(() => drawer.classList.remove('translate-x-full'), 10);
+            } else {
+                drawer.classList.add('translate-x-full');
+                setTimeout(() => modal.classList.add('hidden'), 300);
+            }
+        }
+
+        function addToCart(productId) {
+            const product = products.find(p => p.id === productId);
+            const existing = cart.find(item => item.id === productId);
+            if (existing) {
+                existing.qty += 1;
+            } else {
+                cart.push({ ...product, qty: 1 });
+            }
+            updateCartUI();
+            playDingSound();
+            triggerRandomSavageToast(`"${product.name}" কার্টে যোগ করা হয়েছে! ফ্যাহিমের ওয়ালেট এখন মৃত্যুর মুখে।`);
+        }
+
+        function updateCartQty(productId, change) {
+            const item = cart.find(i => i.id === productId);
+            if (item) {
+                item.qty += change;
+                if (item.qty <= 0) {
+                    cart = cart.filter(i => i.id !== productId);
+                }
+            }
+            updateCartUI();
+            triggerRandomSavageToast('কার্টের পরিমাণ আপডেট করা হলো। ফ্যাহিমের ঋণ আরও বেড়ে গেল!');
+        }
+
+        function updateCartUI() {
+            const badge = document.getElementById('cart-badge');
+            const container = document.getElementById('cart-items-container');
+            const totalEl = document.getElementById('cart-total');
+
+            const totalCount = cart.reduce((sum, item) => sum + item.qty, 0);
+            badge.innerText = totalCount;
+
+            const totalPrice = cart.reduce((sum, item) => sum + (item.price * item.qty), 0);
+            totalEl.innerText = `৳${totalPrice.toLocaleString('bn-BD')}`;
+
+            if (cart.length === 0) {
+                container.innerHTML = `
+                    <div class="text-center py-16 text-stone-400 space-y-3">
+                        <i class="fa-solid fa-basket-shopping text-4xl text-stone-300"></i>
+                        <p class="font-serif text-lg">আপনার কার্ট ফ্যাহিমের মনের মতো একদম খালি!</p>
+                        <p class="text-xs text-stone-500">কারণ ফ্যাহিমের পকেটে টাকা নেই এবং এক্স সব ব্লক করে দিয়েছে।</p>
+                    </div>
+                `;
+                return;
+            }
+
+            container.innerHTML = cart.map(item => `
+                <div class="flex items-center justify-between bg-stone-100 p-4 rounded-2xl border border-stone-200 gap-3">
+                    <img src="${item.image}" class="w-16 h-16 object-cover rounded-xl">
+                    <div class="flex-grow">
+                        <h4 class="font-serif font-bold text-sm text-forest">${item.name}</h4>
+                        <span class="text-xs text-stone-500">৳${item.price.toLocaleString('bn-BD')} x ${item.qty}</span>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <button onclick="updateCartQty(${item.id}, -1)" class="w-7 h-7 bg-white rounded-lg shadow flex items-center justify-center font-bold text-forest hover:bg-stone-200">-</button>
+                        <span class="text-sm font-bold">${item.qty}</span>
+                        <button onclick="updateCartQty(${item.id}, 1)" class="w-7 h-7 bg-white rounded-lg shadow flex items-center justify-center font-bold text-forest hover:bg-stone-200">+</button>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // --- CHECKOUT & SUCCESS MODALS WITH MAXIMUM SARCASM ---
+        function openCheckoutModal() {
+            if (cart.length === 0) {
+                triggerRandomSavageToast("আগে কার্টে কিছু আইটেম যোগ করুন! ফ্যাহিম শূন্য হাতে চেকআউটে যেতে পারবে না।");
+                return;
+            }
+            toggleCart();
+            document.getElementById('checkout-modal').classList.remove('hidden');
+            triggerRandomSavageToast("চেকআউট ফর্ম খোলা হলো। ফ্যাহিমের কার্ড চার্জ করার সময় এসে গেছে!");
+        }
+
+        function closeCheckoutModal() {
+            document.getElementById('checkout-modal').classList.add('hidden');
+        }
+
+        function processCheckoutSubmit(e) {
+            e.preventDefault();
+            closeCheckoutModal();
+            document.getElementById('success-modal').classList.remove('hidden');
+            playDinoRoar();
+            triggerRandomSavageToast("অর্ডার সফল! ফ্যাহিমের ব্যাংক অ্যাকাউন্ট থেকে টাকা কেটে নেওয়া হয়েছে।");
+        }
+
+        function closeSuccessModal() {
+            document.getElementById('success-modal').classList.add('hidden');
+            cart = [];
+            updateCartUI();
+            switchTab('home');
+        }
+
+        // --- ROAST QUOTE GENERATOR ---
+        function generateRandomRoastQuote() {
+            const random = roastQuotes[Math.floor(Math.random() * roastQuotes.length)];
+            const display = document.getElementById('arena-quote-display');
+            if (display) display.innerText = `"${random}"`;
+            playDingSound();
+        }
+
+        // --- ROAST ENGINE FOR TAB 4 ---
+        function runRoastEngine(level) {
+            const output = document.getElementById('roast-engine-output');
+            if (output) {
+                output.innerText = engineQuotes[level];
+            }
+            playDinoRoar();
+        }
+
+        // --- ROASTS WALL ---
+        function renderRoasts() {
+            const container = document.getElementById('roasts-container');
+            if (!container) return;
+
+            container.innerHTML = roasts.map(r => `
+                <div class="bg-white border border-gold/30 rounded-2xl p-5 shadow-sm space-y-2">
+                    <div class="flex items-center justify-between">
+                        <span class="font-serif font-bold text-forest text-sm">${r.author}</span>
+                        <span class="text-[10px] text-stone-400 bg-stone-100 px-2 py-0.5 rounded">ভেরিফাইড রোস্ট</span>
+                    </div>
+                    <p class="text-stone-700 text-sm italic leading-relaxed">"${r.text}"</p>
+                </div>
+            `).join('');
+        }
+
+        function submitUserRoast(e) {
+            e.preventDefault();
+            const author = document.getElementById('roast-author').value;
+            const text = document.getElementById('roast-text').value;
+
+            roasts.unshift({ author, text });
+            renderRoasts();
+            document.getElementById('roast-form').reset();
+            playDingSound();
+            triggerRandomSavageToast("আপনার রোস্ট সফলভাবে বোর্ডে যুক্ত হয়েছে! ফ্যাহিম এখন পড়ার সাহস পাচ্ছে না।");
+        }
+
+        // --- TOAST NOTIFICATIONS ---
+        function showToast(message) {
+            const container = document.getElementById('toast-container');
+            const toast = document.createElement('div');
+            toast.className = 'bg-forest text-ivory px-6 py-4 rounded-2xl shadow-2xl border border-gold/40 text-sm font-medium flex items-center gap-3 transform translate-y-10 opacity-0 transition-all duration-300 pointer-events-auto';
+            toast.innerHTML = `
+                <img src="Logo.png" class="w-6 h-6 rounded-full bg-ivory p-1 object-contain">
+                <span>${message}</span>
+            `;
+            container.appendChild(toast);
+
+            setTimeout(() => {
+                toast.classList.remove('translate-y-10', 'opacity-0');
+            }, 50);
+
+            setTimeout(() => {
+                toast.classList.add('translate-y-10', 'opacity-0');
+                setTimeout(() => toast.remove(), 300);
+            }, 4000);
+        }
+
+        // --- INITIALIZATION ---
+        window.onload = function() {
+            renderProducts('all');
+            renderRoasts();
+            const allProductsButton = document.querySelector('.category-btn');
+            if (allProductsButton) {
+                document.querySelectorAll('.category-btn').forEach(btn => btn.classList.remove('bg-forest', 'text-ivory'));
+                allProductsButton.classList.add('bg-forest', 'text-ivory');
+            }
+        };
+    </script>
+</body>
+</html>
